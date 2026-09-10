@@ -1,16 +1,43 @@
-<section id="pricing" class="section">
+<section id="pricing" class="cb-products-section">
     <div class="shell">
-        <div class="section-heading reveal"><span class="section-kicker">A Treat for Every Moment</span>
-            <h2>Treats for Every Craving</h2>
-            <p>Just for you, a little gift, or something to share.</p>
+        <div class="cb-products-heading" data-reveal>
+            <p class="cb-section-kicker">Freshly made</p>
+            <h2>Our <span>Products</span></h2>
         </div>
-        <div class="pricing-grid grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <x-pricing-card name="Single Orders" price="₱25" unit="piece" :features="['One banana cupcake', 'Soft and freshly baked', 'Perfect for a little craving']" />
-            <x-pricing-card name="Boxes" price="₱100" unit="box" :features="['Banana cupcakes to share', 'Made-to-order batch', 'Great for gifts and gatherings']" :featured="true"
-                delay="0.1" />
-            <x-pricing-card name="Packages" price="₱100" unit="package" :features="['Homemade chocolate crinkles', 'Soft, chewy chocolate centers', 'Packed for your merienda']" delay="0.2" />
+
+        <div class="cb-products-grid">
+            <x-pricing-card
+                name="Banana Treats"
+                image="banana-box-2.webp"
+                subtitle="Soft, moist, chocolatey."
+                price="₱25"
+                unit="per piece"
+                secondaryPrice="₱100"
+                secondaryUnit="per box"
+            />
+
+            <x-pricing-card
+                name="Chocolate Crinkles"
+                image="crinkles-closeup.webp"
+                subtitle="Classic, rich & chewy."
+                price="₱100"
+                unit="per package"
+                featured="true"
+                delay="0.06"
+            />
+
+            <x-pricing-card
+                name="Treat Bundle"
+                image="banana-four.webp"
+                subtitle="Banana treats + crinkles."
+                price="Message us"
+                unit="for bundle price"
+                delay="0.12"
+            />
         </div>
-        <p class="pricing-note">Sample menu prices. Message us to confirm current prices, box quantities, and
-            availability.</p>
+
+        <p class="cb-pricing-note">
+            Prices shown are sample menu prices from the current project. Message C'Bites to confirm current availability and box quantities.
+        </p>
     </div>
 </section>

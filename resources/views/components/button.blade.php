@@ -1,3 +1,13 @@
-@props(['href' => '#', 'variant' => 'primary'])
+@props([
+    'href' => '#',
+    'variant' => 'primary',
+])
+
 <a href="{{ $href }}"
-    {{ $attributes->class(['btn', 'btn-outline' => $variant === 'secondary']) }}>{{ $slot }}</a>
+    {{ $attributes->class([
+        'cb-btn',
+        'cb-btn-primary' => $variant === 'primary',
+        'cb-btn-outline' => $variant === 'secondary',
+    ]) }}>
+    {{ $slot }}
+</a>

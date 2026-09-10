@@ -1,6 +1,15 @@
-@props(['icon', 'title', 'description', 'delay' => 0])
-<article class="feature-card reveal rounded-3xl shadow-sm hover:shadow-lg" style="--delay: {{ $delay }}s">
-    <span class="feature-icon" aria-hidden="true">{{ $icon }}</span>
+@props([
+    'icon',
+    'title',
+    'description',
+    'delay' => 0,
+])
+
+<article class="cb-feature-card" data-reveal style="--reveal-delay: {{ $delay }}s">
+    <span class="cb-feature-icon" aria-hidden="true">
+        <img src="{{ asset('images/ui/' . $icon) }}" alt="">
+    </span>
+
     <h3>{{ $title }}</h3>
     <p>{{ $description }}</p>
 </article>

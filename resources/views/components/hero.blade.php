@@ -1,28 +1,88 @@
-<section id="home" class="hero">
-    <div class="hero-blobs" aria-hidden="true"><span></span><span></span><span></span></div>
-    <div class="shell hero-grid grid items-center gap-12 lg:grid-cols-2">
-        <div class="hero-copy">
-            <span class="section-kicker">Homemade Goodness, Happier Days</span>
-            <h1>Crinkles &amp;<br>Banana Cupcakes<br>Made with <em>Love</em></h1>
-            <p>Soft, chewy crinkles. Moist banana cupcakes. Homemade little treats for your everyday cravings and your
-                happiest moments.</p>
-            <div class="actions flex flex-wrap gap-3"><x-button :href="route('contact')">Order Now <span
-                        aria-hidden="true">↗</span></x-button><x-button href="#products" variant="secondary">View
-                    Products</x-button></div>
-            <div class="trust-row grid grid-cols-3 gap-3">
-                <div><span aria-hidden="true">♡</span><strong>100% Homemade</strong></div>
-                <div><span aria-hidden="true">♨</span><strong>Freshly Baked</strong></div>
-                <div><span aria-hidden="true">✧</span><strong>Affordable Treats</strong></div>
+<section id="home" class="cb-hero">
+    <div class="shell cb-hero-grid">
+
+        {{-- LEFT CONTENT --}}
+        <div class="cb-hero-copy" data-reveal>
+            <p class="cb-eyebrow">
+                Homemade treats, happier days
+            </p>
+
+            <h1 class="cb-display">
+                <span>Goodness</span>
+                <span class="cb-display-pink">Comes in</span>
+                <span>
+                    Bites.
+                    <i aria-hidden="true">♡</i>
+                </span>
+            </h1>
+
+            <p class="cb-hero-text">
+                Homemade banana treats and chocolate crinkles, made with love.
+            </p>
+
+            <div class="cb-actions">
+
+                <x-button :href="route('contact')">
+                    Order Now
+                    <span aria-hidden="true">→</span>
+                </x-button>
+
+                <x-button href="#products" variant="secondary">
+                    Our Treats
+                </x-button>
+
             </div>
         </div>
-        <div class="hero-art">
-            <img class="hero-photo" src="{{ asset('images/crinkles-closeup.webp') }}"
-                alt="Homemade chocolate crinkles dusted with powdered sugar" width="720" height="800"
-                fetchpriority="high">
-            <img class="hero-inset" src="{{ asset('images/banana-box-1.webp') }}"
-                alt="A box of chocolate-topped banana cupcakes" width="240" height="240">
-            <span class="doodle doodle-top">Good Food<br>Brighter Days! <span aria-hidden="true">✧</span></span>
-            <span class="doodle doodle-bottom">Small Bites<br>Big Happiness! <span aria-hidden="true">♡</span></span>
+
+
+        {{-- RIGHT HERO IMAGE --}}
+        <div
+            class="cb-hero-art"
+            data-reveal
+            style="--reveal-delay: .08s"
+        >
+
+            <div
+                class="cb-paper-backdrop"
+                aria-hidden="true">
+            </div>
+
+            <figure class="cb-hero-photo-wrap">
+
+                <img
+                    class="cb-hero-photo"
+                    src="{{ asset('images/banana-box-2.webp') }}"
+                    alt="C'Bites homemade banana chocolate treats"
+                    width="900"
+                    height="720"
+                    fetchpriority="high"
+                    style="
+                        object-fit: cover;
+                        object-position: center 48%;
+                    "
+                >
+
+            </figure>
+
+
+            {{-- SMALL STICKY NOTE --}}
+            <div
+                class="cb-sticky-note"
+                aria-hidden="true"
+            >
+                <span>Real Bananas</span>
+                <span>Real Happiness</span>
+                <b>♡</b>
+            </div>
+
+
+            {{-- SMALL DOODLE ACCENT --}}
+            <span
+                class="cb-scribble cb-scribble-one"
+                aria-hidden="true">
+            </span>
+
         </div>
+
     </div>
 </section>

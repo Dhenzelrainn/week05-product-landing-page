@@ -1,21 +1,41 @@
 @props(['products'])
-<section id="products" class="section products-section" data-product-section>
+
+<section id="products" class="cb-treats-section">
     <div class="shell">
-        <div class="section-heading reveal"><span class="section-kicker">Fresh from Our Kitchen</span>
-            <h2>A Little Bite of Happiness</h2>
-            <p>Find your favorite. Or make room for a new one.</p>
-        </div>
-        <div class="filter-tabs flex flex-wrap justify-center gap-3" role="group" aria-label="Filter products">
-            <button type="button" data-filter="all" aria-pressed="true">All</button><button type="button"
-                data-filter="crinkles" aria-pressed="false">Crinkles</button><button type="button"
-                data-filter="banana-cupcakes" aria-pressed="false">Banana Cupcakes</button>
-        </div>
-        <p class="sr-only" role="status" data-filter-status>{{ $products->count() }} products</p>
-        <div class="product-grid grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-product-grid>
-            @forelse($products as $product)
-            <x-product-card :product="$product" />@empty<p>Our menu is being prepared. Please message us for
-                    availability.</p>
-            @endforelse
+        <div class="cb-treats-layout">
+            <div class="cb-treats-copy" data-reveal>
+                <p class="cb-section-kicker">Our treats</p>
+                <h2>Our <span>Treats</span></h2>
+                <p>Simple ingredients.<br>Extra special bites.</p>
+            </div>
+
+            <figure class="cb-polaroid cb-polaroid-banana" data-reveal style="--reveal-delay: .06s">
+                <span class="cb-tape" aria-hidden="true"></span>
+                <img src="{{ asset('images/banana-tray-1.webp') }}"
+                    alt="Freshly baked banana treats topped with chocolate"
+                    width="680"
+                    height="540"
+                    loading="lazy">
+                <figcaption>
+                    <strong>Banana Treats</strong>
+                    <span>Moist. Chocolatey.</span>
+                </figcaption>
+            </figure>
+
+            <figure class="cb-polaroid cb-polaroid-crinkles" data-reveal style="--reveal-delay: .12s">
+                <span class="cb-tape" aria-hidden="true"></span>
+                <img src="{{ asset('images/crinkles-cut.webp') }}"
+                    alt="Chocolate crinkles with a soft chocolate center"
+                    width="680"
+                    height="540"
+                    loading="lazy">
+                <figcaption>
+                    <strong>Chocolate Crinkles</strong>
+                    <span>Soft. Chewy. Timeless.</span>
+                </figcaption>
+            </figure>
         </div>
     </div>
+
+    <div class="cb-paper-edge" aria-hidden="true"></div>
 </section>
