@@ -1,4 +1,5 @@
 <section id="home" class="hero">
+    <div class="hero-blobs" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="shell hero-grid grid items-center gap-12 lg:grid-cols-2">
         <div class="hero-copy">
             <span class="section-kicker">Homemade Goodness, Happier Days</span>

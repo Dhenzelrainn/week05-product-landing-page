@@ -123,6 +123,85 @@ function initializeCBites() {
             });
         }),
     );
+
+    // --- Scroll progress bar ---
+    const progress = document.querySelector("[data-scroll-progress]");
+    const setProgress = () => {
+        if (!progress) return;
+        const h = document.documentElement;
+        const scrolled = h.scrollTop || document.body.scrollTop;
+        const height = h.scrollHeight - h.clientHeight;
+        progress.style.width = `${height > 0 ? (scrolled / height) * 100 : 0}%`;
+    };
+    setProgress();
+    window.addEventListener("scroll", setProgress, { passive: true });
+
+    // --- Back to top button ---
+    const toTop = document.querySelector("[data-to-top]");
+    const toggleToTop = () =>
+        toTop?.classList.toggle("is-visible", window.scrollY > 480);
+    toggleToTop();
+    window.addEventListener("scroll", toggleToTop, { passive: true });
+    toTop?.addEventListener("click", () =>
+        window.scrollTo({
+            top: 0,
+            behavior: reduced.matches ? "auto" : "smooth",
+        }),
+    );
+
+    // --- 3D tilt on cards (mouse only, respects reduced motion) ---
+    if (window.matchMedia("(hover: hover)").matches && !reduced.matches) {
+        document
+            .querySelectorAll(
+                ".feature-card, .product-card, .pricing-card, .testimonial-card",
+            )
+            .forEach((card) => {
+                const strength = 8;
+                card.addEventListener("pointerenter", () =>
+                    card.classList.add("tilt-active"),
+                );
+                card.addEventListener("pointermove", (e) => {
+                    const box = card.getBoundingClientRect();
+                    const px = (e.clientX - box.left) / box.width - 0.5;
+                    const py = (e.clientY - box.top) / box.height - 0.5;
+                    card.style.transform = `perspective(800px) rotateX(${(-py * strength).toFixed(2)}deg) rotateY(${(px * strength).toFixed(2)}deg) translateY(-4px)`;
+                });
+                card.addEventListener("pointerleave", () => {
+                    card.classList.remove("tilt-active");
+                    card.style.transform = "";
+                });
+            });
+    }
+
+    // --- Confetti hearts burst on primary order/CTA buttons ---
+    document
+        .querySelectorAll(".btn:not(.btn-outline)")
+        .forEach((btn) =>
+            btn.addEventListener("pointerdown", (e) => {
+                if (reduced.matches) return;
+                const symbols = ["♡", "✧", "♥"];
+                for (let i = 0; i < 6; i++) {
+                    const heart = document.createElement("span");
+                    heart.className = "confetti-heart";
+                    heart.textContent =
+                        symbols[Math.floor(Math.random() * symbols.length)];
+                    heart.style.left = `${e.clientX}px`;
+                    heart.style.top = `${e.clientY}px`;
+                    const angle = Math.random() * Math.PI * 2;
+                    const dist = 40 + Math.random() * 50;
+                    heart.style.setProperty(
+                        "--confetti-end",
+                        `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist - 30}px) rotate(${Math.random() * 360}deg)`,
+                    );
+                    document.body.append(heart);
+                    heart.addEventListener(
+                        "animationend",
+                        () => heart.remove(),
+                        { once: true },
+                    );
+                }
+            }),
+        );
     const form = document.querySelector("[data-contact-form]");
     if (form) {
         const selected = new URLSearchParams(location.search).get("order");

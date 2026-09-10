@@ -14,7 +14,9 @@
 
 <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
     @yield('content')
+    <button type="button" class="to-top" data-to-top aria-label="Back to top">↑</button>
 </body>
 
 </html>
