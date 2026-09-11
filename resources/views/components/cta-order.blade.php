@@ -6,11 +6,15 @@
                 <h2 id="order-heading">Sweeter Day?</h2>
             </div>
 
-            <p class="cb-cta-copy">Order your C'Bites favorites today!</p>
+            <p class="cb-cta-copy">Start with a treat, check the packages, or message C'Bites directly.</p>
 
-            <x-button :href="route('contact')" class="cb-cta-button">
-                Order Now <span aria-hidden="true">→</span>
-            </x-button>
+            <div class="cb-cta-actions">
+                <x-button :href="route('contact')">
+                    Get Started <span aria-hidden="true">→</span>
+                </x-button>
+                <x-button href="#contact" variant="secondary">Contact Us</x-button>
+                <x-button href="#pricing" variant="secondary">View Pricing</x-button>
+            </div>
 
             <img class="cb-cta-mascot"
                 src="{{ asset('images/ui/doodle-girl.svg') }}"

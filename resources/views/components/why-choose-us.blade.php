@@ -29,6 +29,12 @@
                 title="Great for Gifting"
                 description="Any occasion"
                 delay="0.16" />
+
+            <x-feature-card
+                icon="price-tag.svg"
+                title="Affordable Treats"
+                description="Sweet value"
+                delay="0.20" />
         </div>
     </div>
 </section>

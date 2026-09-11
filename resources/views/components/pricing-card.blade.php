@@ -4,21 +4,20 @@
     'subtitle',
     'price',
     'unit',
-    'secondaryPrice' => null,
-    'secondaryUnit' => null,
+    'features' => [],
     'featured' => false,
     'delay' => 0,
 ])
 
 <article @class([
-        'cb-product-price-card',
+        'cb-product-price-card rounded-[26px] shadow-sm transition hover:-translate-y-1',
         'cb-product-price-card-featured' => $featured,
     ])
     data-reveal
     style="--reveal-delay: {{ $delay }}s">
 
     @if ($featured)
-        <span class="cb-product-badge">Best seller</span>
+        <span class="cb-product-badge">Most Popular</span>
     @endif
 
     <div class="cb-product-price-image">
@@ -30,6 +29,7 @@
     </div>
 
     <div class="cb-product-price-body">
+        <p class="cb-plan-label">Package</p>
         <h3>{{ $name }}</h3>
         <p class="cb-product-subtitle">{{ $subtitle }}</p>
 
@@ -38,16 +38,18 @@
                 <strong>{{ $price }}</strong>
                 <span>{{ $unit }}</span>
             </div>
-
-            @if ($secondaryPrice)
-                <span class="cb-price-divider" aria-hidden="true"></span>
-
-                <div>
-                    <strong>{{ $secondaryPrice }}</strong>
-                    <span>{{ $secondaryUnit }}</span>
-                </div>
-            @endif
         </div>
+
+        @if (count($features))
+            <ul class="cb-plan-features" aria-label="{{ $name }} inclusions">
+                @foreach ($features as $feature)
+                    <li>
+                        <span aria-hidden="true">✓</span>
+                        {{ $feature }}
+                    </li>
+                @endforeach
+            </ul>
+        @endif
 
         <x-button :href="route('contact', ['order' => $name])">
             Order Now <span aria-hidden="true">→</span>
