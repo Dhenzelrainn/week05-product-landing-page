@@ -321,13 +321,13 @@ week05-product-landing-page/
 
 The initial version focused mainly on arranging the basic content and page sections. It established the general structure of the landing page but still needed improvements in visual hierarchy, responsiveness, spacing, and reusable component organization.
 
-![Before Design](documentation/before-design.png)
+![Before Design](documentations/before-design.png)
 
 ### After
 
 The final version improves the visual hierarchy, responsive behavior, typography, spacing, component consistency, and overall usability. The polished interface better represents the C'Bites brand and provides a clearer experience for visitors across different screen sizes.
 
-![After Design](documentation/after-design.png)
+![After Design](documentations/after-design.png)
 
 ---
 
